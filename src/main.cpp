@@ -962,9 +962,37 @@ int64_t GetProofOfWorkReward(int64_t nHeight, int64_t nFees)
     {
         nSubsidy = 20000000 * COIN;
     }
-        else if(pindexBest->nHeight < 40000)
+    else if(pindexBest->nHeight < 40000)
     {
         nSubsidy = 1200 * COIN;
+    }
+    else if(pindexBest->nHeight < 280000)
+    {
+        nSubsidy = 200000 * COIN;
+    }
+    else if(pindexBest->nHeight < 300000)
+    {
+        nSubsidy = 20000 * COIN;
+    }
+    else if(pindexBest->nHeight < 320000)
+    {
+        nSubsidy = 2000 * COIN;
+    }
+    else if(pindexBest->nHeight < 340000)
+    {
+        nSubsidy = 2000 * COIN;
+    }
+    else if(pindexBest->nHeight < 360000)
+    {
+        nSubsidy = 200 * COIN;
+    }
+    else if(pindexBest->nHeight < 380000)
+    {
+        nSubsidy = 20 * COIN;
+    }
+    else if(pindexBest->nHeight < 400000)
+    {
+        nSubsidy = 2 * COIN;
     }
 
     LogPrint("creation", "GetProofOfWorkReward() : create=%s nSubsidy=%d\n", FormatMoney(nSubsidy), nSubsidy);
@@ -1973,9 +2001,6 @@ bool CBlock::AcceptBlock()
         return DoS(100, error("AcceptBlock() : reject too old nVersion = %d", nVersion));
     else if (nVersion > 7)
         return DoS(100, error("AcceptBlock() : reject too new nVersion = %d", nVersion));
-
-    if (IsProofOfWork() && nHeight > Params().LastPoWBlock())
-        return DoS(100, error("AcceptBlock() : reject proof-of-work at height %d", nHeight));
 
     // Check coinbase timestamp
     if (GetBlockTime() > FutureDrift((int64_t)vtx[0].nTime))
