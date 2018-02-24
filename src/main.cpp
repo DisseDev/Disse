@@ -1008,6 +1008,38 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
     {
         nSubsidy = 1200 * COIN; // same reward as pow until full pos kicks in for fairness
     }
+    else if(pindexBest->nHeight < 278550)
+    {
+        nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8);
+    }
+    else if(pindexBest->nHeight < 280000)
+    {
+        nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8) * 10000;
+    }
+    else if(pindexBest->nHeight < 300000)
+    {
+        nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8) * 1000;
+    }
+    else if(pindexBest->nHeight < 320000)
+    {
+        nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8) * 100;
+    }
+    else if(pindexBest->nHeight < 340000)
+    {
+        nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8) * 100;
+    }
+    else if(pindexBest->nHeight < 360000)
+    {
+        nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8) * 10;
+    }
+    else if(pindexBest->nHeight < 380000)
+    {
+        nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8) * 1;
+    }
+    else if(pindexBest->nHeight > 380001)
+    {
+        nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8);
+    }
 
     LogPrint("creation", "GetProofOfStakeReward(): create=%s nCoinAge=%d\n", FormatMoney(nSubsidy), nCoinAge);
 
