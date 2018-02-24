@@ -1,5 +1,6 @@
-Disse 0.4.4 BETA
+Disse 1.1.0 DWT
 
+Copyright (c) 2018 Disse Developers
 Copyright (c) 2013 NovaCoin Developers
 Copyright (c) 2011-2013 PPCoin Developers
 Distributed under the MIT/X11 software license, see the accompanying
