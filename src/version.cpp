@@ -11,7 +11,7 @@
 const std::string CLIENT_NAME("Disse");
 
 // Client version number
-#define CLIENT_VERSION_SUFFIX   "CWT"
+#define CLIENT_VERSION_SUFFIX   "-DWT"
 
 
 // The following part of the code determines the CLIENT_BUILD variable.
